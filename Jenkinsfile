@@ -7,9 +7,20 @@ pipeline {
             choices: ['@Regression', '@Web', '@API'],
             description: 'Select test suite'
         )
+        choice(
+            name: 'ENV',
+            choices: ['client', 'eventhub'],
+            description: 'Select Environment'
+        )
     }
 
     stages {
+
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
 
         stage('Install Dependencies') {
             steps {
@@ -17,7 +28,7 @@ pipeline {
             }
         }
 
-        stage('Install Browsers') {
+        stage('Install Chromium') {
             steps {
                 sh 'npx playwright install chromium'
             }
@@ -25,7 +36,19 @@ pipeline {
 
         stage('Run Tests') {
             steps {
-                sh "npx playwright test --grep ${params.TAG}"
+                script {
+                    def urls = [
+                        client: "https://rahulshettyacademy.com",
+                        eventhub: "https://eventhub.rahulshettyacademy.com"
+                    ]
+
+                    def selectedUrl = urls[params.ENV]
+
+                    sh """
+                    BASE_URL=${selectedUrl} \
+                    npx playwright test --project=chromium --grep "${params.TAG}"
+                    """
+                }
             }
         }
     }

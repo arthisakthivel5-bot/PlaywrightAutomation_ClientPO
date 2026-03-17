@@ -13,7 +13,7 @@ export default defineConfig({
     trace: 'retain-on-failure',
     screenshot:'only-on-failure',
     video:'retain-on-failure',
-    baseURL:process.env.BASE_URL_CLIENT
+    baseURL: process.env.BASE_URL_CLIENT || process.env.BASE_URL
   },
 
   projects: [
