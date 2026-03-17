@@ -1,0 +1,13 @@
+{
+  "devDependencies": {
+    "@playwright/test": "^1.58.2",
+    "@types/node": "^25.4.0",
+    "eslint": "^10.0.3"
+  },
+  "scripts": {
+    "test": "playwright test"
+  },
+  "dependencies": {
+    "dotenv": "^17.3.1"
+  }
+}

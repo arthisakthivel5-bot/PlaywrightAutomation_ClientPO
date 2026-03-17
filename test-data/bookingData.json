@@ -1,0 +1,24 @@
+{
+    "users": [
+      {
+        "fullname": "Mathew George",
+        "email": "mathew@gmail.com",
+        "phoneNo": "9865423111"
+      },
+      {
+        "fullname": "David Mark",
+        "email": "david@gmail.com",
+        "phoneNo": "9865423456"
+      },
+      {
+        "fullname": "Andy Tran",
+        "email": "andy@gmail.com",
+        "phoneNo": "9865412342"
+      }
+    ],
+    "ticketData": {
+      "defaultCount": 1,
+      "currentCount": 1,
+      "targetCount": 3
+    }
+  }
