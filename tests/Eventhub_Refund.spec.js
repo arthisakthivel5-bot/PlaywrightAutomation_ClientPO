@@ -4,14 +4,6 @@ require("dotenv").config();
 const { loginHub } = require("../utils/loginHelper")
 const { users, ticketData } = require("../test-data/bookingData.json")
 
-
-const fullname = "Mathew George"
-const email = "mathew@gmail.com"
-const phoneNo = "9865423111"
-const defaultCount = 1
-const currentCount = 1
-const targetCount = 3
-
 test("Single ticket booking is eligible for refund", async ({ page }) => {
 
     await loginHub(page)
