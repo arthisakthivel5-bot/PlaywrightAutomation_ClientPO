@@ -12,6 +12,11 @@ pipeline {
             choices: ['client', 'eventhub'],
             description: 'Select Environment'
         )
+        choice(
+            name: 'USER',
+            choices: ['user1', 'user2'],
+            description: 'Select User'
+        )
     }
 
     stages {
@@ -37,17 +42,30 @@ pipeline {
         stage('Run Tests') {
             steps {
                 script {
+
+                    // URL mapping
                     def urls = [
                         client: "https://rahulshettyacademy.com",
                         eventhub: "https://eventhub.rahulshettyacademy.com"
                     ]
-
                     def selectedUrl = urls[params.ENV]
 
-                    sh """
-                    BASE_URL=${selectedUrl} \
-                    npx playwright test --project=chromium --grep "${params.TAG}"
-                    """
+                    // Credentials mapping
+                    def credsId = params.USER == 'user1' ? 'user1-login' : 'user2-login'
+
+                    withCredentials([usernamePassword(
+                        credentialsId: credsId,
+                        usernameVariable: 'USERNAME',
+                        passwordVariable: 'PASSWORD'
+                    )]) {
+
+                        sh """
+                        BASE_URL=${selectedUrl} \
+                        USERNAME=${USERNAME} \
+                        PASSWORD=${PASSWORD} \
+                        npx playwright test --project=chromium --grep "${params.TAG}"
+                        """
+                    }
                 }
             }
         }

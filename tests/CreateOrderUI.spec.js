@@ -6,7 +6,7 @@ const country = "India"
 const name = "Anish"
 const couponcode = "rahulshettyacademy"
 
-test('Verify Order thru UI', async ({ authenticatedPage }) => {
+test('@Web Verify Order thru UI', async ({ authenticatedPage }) => {
  
   
   /** @type {import('@playwright/test').Page} */
