@@ -4,7 +4,7 @@ require("dotenv").config();
 const { loginHub } = require("../utils/loginHelper")
 const { users, ticketData } = require("../test-data/bookingData.json")
 
-test("Single ticket booking is eligible for refund", async ({ page }) => {
+test("@Web Single ticket booking is eligible for refund", async ({ page }) => {
 
     await loginHub(page)
     const pom = new PageObjectManager(page);
@@ -22,7 +22,7 @@ test("Single ticket booking is eligible for refund", async ({ page }) => {
     await myBookingdetails.checkRefundEligibility();
 
 })
-test("Group ticket booking is NOT eligible for refund", async ({ page }) => {
+test("@Web Group ticket booking is NOT eligible for refund", async ({ page }) => {
 
     await loginHub(page)
     const pom = new PageObjectManager(page);
