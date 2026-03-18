@@ -87,8 +87,10 @@ pipeline {
         // Allure Report
         allure([
             includeProperties: false,
-            results: [[path: 'allure-results']]
-        ])
+            results: [[path: 'allure-results']],
+            commandline: 'allure'   // 👈 THIS LINE IS IMPORTANT
+            ])
     }
-}
+    
+    }
 }
