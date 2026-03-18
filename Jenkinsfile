@@ -76,7 +76,7 @@ pipeline {
 
         // Playwright HTML Report
         publishHTML(target: [
-            allowMissing: false,
+            allowMissing: true,
             alwaysLinkToLastBuild: true,
             keepAll: true,
             reportDir: 'playwright-report',
