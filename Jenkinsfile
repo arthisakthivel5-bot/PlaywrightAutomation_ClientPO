@@ -65,8 +65,6 @@ pipeline {
                         PASSWORD=${PASSWORD} \
                         npx playwright test --project=chromium --grep "${params.TAG}"
                         """
-
-                        sh 'ls -R'
                     }
                     
                 }
