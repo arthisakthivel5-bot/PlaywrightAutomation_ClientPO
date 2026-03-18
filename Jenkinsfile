@@ -86,7 +86,8 @@ pipeline {
 
         // Allure Report
         allure([
-            includeProperties: false
+            includeProperties: false,
+            results: [[path: 'allure-results']]
         ])
     }
 }
