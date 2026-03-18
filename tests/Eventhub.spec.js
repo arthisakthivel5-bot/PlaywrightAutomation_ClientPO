@@ -7,7 +7,7 @@ const { users,ticketData} = require("../test-data/bookingData.json");
 
 
 
-test("Create a brand new event from the admin panel and verify the seat count",async({page})=> {
+test("@Web Create a brand new event from the admin panel and verify the seat count",async({page})=> {
     
     //Login
     await loginHub(page);
