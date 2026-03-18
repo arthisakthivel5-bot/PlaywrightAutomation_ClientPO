@@ -65,7 +65,10 @@ pipeline {
                         PASSWORD=${PASSWORD} \
                         npx playwright test --project=chromium --grep "${params.TAG}"
                         """
+
+                        sh 'ls -R'
                     }
+                    
                 }
             }
         }
@@ -89,7 +92,7 @@ pipeline {
         allure([
             includeProperties: false,
             results: [[path: 'allure-results']],
-            commandline: 'allure'   // 👈 THIS LINE IS IMPORTANT
+            commandline: 'allure'   
             ])
     }
     
