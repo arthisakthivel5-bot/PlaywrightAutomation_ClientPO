@@ -11,7 +11,7 @@ exports.test = base.test.extend({
             window.localStorage.setItem("token",value)
 
         },token)
-        await page.goto(`${process.env.BASE_URL_CLIENT}/client/#/dashboard/dash`)
+        await page.goto(`${process.env.BASE_URL}/client/#/dashboard/dash`)
 
         await use(page);   
     },
