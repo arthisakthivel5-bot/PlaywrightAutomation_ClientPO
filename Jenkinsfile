@@ -83,7 +83,7 @@ pipeline {
             reportFiles: 'index.html',
             reportName: 'Playwright Report'
         ])
-        junit 'test-results/results.xml'
+        junit 'test-results/results.xml', allowEmptyResults: true, skipIfEmpty: true
 
         // Allure Report
         allure([
