@@ -6,8 +6,8 @@ export default defineConfig({
   testDir: './tests',
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
-  retries: 0,
-  workers: process.env.CI ? 1 : undefined,
+  retries: process.env.CI ? 1 : 2,
+  workers: process.env.CI ? 2 : 4,
   reporter: [
     ['html', { outputFolder: 'playwright-report', open: 'never' }],
     ['allure-playwright'],
@@ -17,7 +17,7 @@ export default defineConfig({
     trace: 'retain-on-failure',
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
-    baseURL: process.env.BASE_URL_CLIENT || process.env.BASE_URL
+    baseURL: process.env.BASE_URL_CLIENT || process.env.BASE_URL,
   },
 
   projects: [

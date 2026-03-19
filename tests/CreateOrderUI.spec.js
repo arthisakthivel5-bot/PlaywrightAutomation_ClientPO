@@ -6,7 +6,7 @@ const country = "India"
 const name = "Anish"
 const couponcode = "rahulshettyacademy"
 
-test('@Regression Verify Order thru UI', async ({ authenticatedPage }) => {
+test.describe.parallel(('@Regression Verify Order thru UI', async ({ authenticatedPage }) => {
  
   
   /** @type {import('@playwright/test').Page} */
@@ -35,9 +35,6 @@ test('@Regression Verify Order thru UI', async ({ authenticatedPage }) => {
   await row.getByRole("button", { name: "View" }).click();
   await expect(page.getByText(OrderID)).toBeVisible();
 
-
-
-
-});
-
+})
+)
 
