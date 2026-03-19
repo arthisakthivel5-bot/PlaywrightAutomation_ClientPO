@@ -38,7 +38,11 @@ pipeline {
                 sh 'npx playwright install chromium'
             }
         }
-
+        stage('Lint Check') {
+            steps {
+                sh 'npm run lint'
+                }
+        }
         stage('Run Tests') {
             steps {
                 script {
